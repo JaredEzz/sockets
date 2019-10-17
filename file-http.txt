@@ -1,0 +1,3 @@
+GET /cgi-bin/bestill.cgi HTTP/1.1
+Host: www-notls.imaal.byu.edu
+

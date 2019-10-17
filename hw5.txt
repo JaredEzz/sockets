@@ -1,0 +1,60 @@
+Part 1: client.c
+1. What two system calls are required to create and prepare a client socket for use?
+  getaddrinfo, socket
+2. Show the command line you used.
+  nc -ul 1998
+3. Show: a) the command line you used;
+
+2) its output;
+
+and 3) a brief explanation of what you see.
+
+4. Modify client.c. Show the command line you used to discover the SHA1 sum and its output.
+
+5. Show: 1) the command line you used to run the client program;
+
+and 2) the console output from the netcat server (not the client).
+
+6. Show the command line you used and its output (Hint: your nc "connection" should show up in the list).
+
+7. Show the command line you used and its output.
+
+Part 2: client.c - TCP
+
+8. Show the command line you used to discover the SHA1 sum and its output.
+
+9. Show the command line you used.
+
+10. Show: a) the command line you used;
+
+2) its output;
+
+and 3) a brief explanation of what you see.
+
+11. Show: 1) the command line you used to run the client program;
+
+and 2) the console output from the netcat server (not the client).
+
+12. Show the command line you used and its output (Hint: your nc connection should show up in the list).
+
+13. Show the command line you used and its output.
+
+Part 3: server.c - TCP
+
+14. Modify server.c. Show the command line you used to discover the SHA1 sum and its output.
+
+15. Show: 1) the command-line you used to run the server program;
+
+and 2) the command-line you used to run the client program, and the output from the client (not the server).
+
+16. Why is there a difference between handling of "connections" at the server with TCP and with UDP?
+
+Part 4: Client modification
+
+17. Modify client.c. Show the command line you used to discover the SHA1 sum and its output.
+
+18. Show: 1) the pipeline you used to run nc, and its output (after the client finished executing);
+
+and 2) the command line you used to run the client program.
+
+19. Show the command line you used to run the client program and its output.
