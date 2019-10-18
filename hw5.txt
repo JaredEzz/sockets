@@ -6,40 +6,40 @@ Part 1: client.c
 3. Show: a) the command line you used;
   netstat -aupn
 2) its output;
-hassonj@cristoredentor:~/CS324/hw5/sockets$ netstat -aupn
-(Not all processes could be identified, non-owned process info
- will not be shown, you would have to be root to see it all.)
-Active Internet connections (servers and established)
-Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
-udp        0      0 0.0.0.0:41633           0.0.0.0:*                           -
-udp        0      0 0.0.0.0:45940           0.0.0.0:*                           -
-udp        0      0 127.0.0.53:53           0.0.0.0:*                           -
-udp        0      0 0.0.0.0:68              0.0.0.0:*                           -
-udp        0      0 0.0.0.0:32868           0.0.0.0:*                           -
-udp        0      0 0.0.0.0:111             0.0.0.0:*                           -
-udp        0      0 127.0.0.1:323           0.0.0.0:*                           -
-udp        0      0 0.0.0.0:631             0.0.0.0:*                           -
-udp        0      0 127.0.0.1:714           0.0.0.0:*                           -
-udp        0      0 0.0.0.0:856             0.0.0.0:*                           -
-udp        0      0 0.0.0.0:3333            0.0.0.0:*                           30635/nc
-udp        0      0 0.0.0.0:5154            0.0.0.0:*                           -
-udp        0      0 0.0.0.0:5353            0.0.0.0:*                           -
-udp        0      0 0.0.0.0:57104           0.0.0.0:*                           -
-udp6       0      0 :::60605                :::*                                -
-udp6       0      0 :::49097                :::*                                -
-udp6       0      0 :::111                  :::*                                -
-udp6       0      0 ::1:323                 :::*                                -
-udp6       0      0 :::856                  :::*                                -
-udp6       0      0 :::5353                 :::*                                -
-udp6       0      0 :::56007                :::*                                -
+    hassonj@cristoredentor:~/CS324/hw5/sockets$ netstat -aupn
+    (Not all processes could be identified, non-owned process info
+     will not be shown, you would have to be root to see it all.)
+    Active Internet connections (servers and established)
+    Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+    udp        0      0 0.0.0.0:41633           0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:45940           0.0.0.0:*                           -
+    udp        0      0 127.0.0.53:53           0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:68              0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:32868           0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:111             0.0.0.0:*                           -
+    udp        0      0 127.0.0.1:323           0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:631             0.0.0.0:*                           -
+    udp        0      0 127.0.0.1:714           0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:856             0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:3333            0.0.0.0:*                           30635/nc
+    udp        0      0 0.0.0.0:5154            0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:5353            0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:57104           0.0.0.0:*                           -
+    udp6       0      0 :::60605                :::*                                -
+    udp6       0      0 :::49097                :::*                                -
+    udp6       0      0 :::111                  :::*                                -
+    udp6       0      0 ::1:323                 :::*                                -
+    udp6       0      0 :::856                  :::*                                -
+    udp6       0      0 :::5353                 :::*                                -
+    udp6       0      0 :::56007                :::*                                -
 
 and 3) a brief explanation of what you see.
-I see all the ports on my lab machine listening on UDP ports, and since I don't have admin access to all of them, I just see the PID for the process I started, nc
+    I see all the ports on my lab machine listening on UDP ports, and since I don't have admin access to all of them, I just see the PID for the process I started, nc
 
 4. Modify client.c. Show the command line you used to discover the SHA1 sum
-  sha1sum client
+    sha1sum client
 and its output.
-  bc795d1eb4fe6a2a47f6741fbf2faa20a4a6163a  client
+    bc795d1eb4fe6a2a47f6741fbf2faa20a4a6163a  client
 5. Show: 1) the command line you used to run the client program;
     hassonj@cristoredentor:~/CS324/hw5/sockets$ ./client localhost 2000 foo bar baz catvideo
     Received 140175820831672 bytes:
@@ -110,9 +110,11 @@ Part 2: client.c - TCP
 9. Show the command line you used.
     nc -kl localhost 2000
 10. Show: a) the command line you used;
-    netstat --tcp -p -n
+    netstat --tcp -l -p -n
 2) its output;
-Active Internet connections (servers and established)
+    │(Not all processes could be identified, non-owned process info
+     will not be shown, you would have to be root to see it all.)
+    Active Internet connections (only servers)
     Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
     tcp        0      0 0.0.0.0:902             0.0.0.0:*               LISTEN      -
     tcp        0      0 0.0.0.0:9005            0.0.0.0:*               LISTEN      -
@@ -127,77 +129,139 @@ Active Internet connections (servers and established)
     tcp        0      0 127.0.0.1:39233         0.0.0.0:*               LISTEN      -
     tcp        0      0 0.0.0.0:5154            0.0.0.0:*               LISTEN      -
     tcp        0      0 0.0.0.0:10050           0.0.0.0:*               LISTEN      -
-    tcp        0      0 192.168.2.144:57715     52.242.211.89:443       ESTABLISHED -
-    tcp        0      0 192.168.2.144:797       192.168.168.26:2049     ESTABLISHED -
-    tcp        0      0 192.168.2.144:53372     192.168.168.29:389      ESTABLISHED -
-    tcp        0      0 192.168.2.144:22        192.168.168.2:23709     SYN_RECV    -
-    tcp        0      0 192.168.2.144:22        192.168.168.2:8503      SYN_RECV    -
-    tcp        0      0 192.168.2.144:52115     52.141.217.125:443      ESTABLISHED -
-    tcp        0      0 192.168.2.144:22        192.168.168.2:55534     SYN_RECV    -
-    tcp        0      0 192.168.2.144:49151     192.168.168.20:24007    ESTABLISHED -
-    tcp        0  11408 192.168.2.144:22        174.23.28.90:58634      ESTABLISHED -
     tcp6       0      0 :::902                  :::*                    LISTEN      -
     tcp6       0      0 :::42795                :::*                    LISTEN      -
     tcp6       0      0 :::111                  :::*                    LISTEN      -
-    tcp6       0      0 ::1:2000                :::*                    LISTEN      4524/nc
+    tcp6       0      0 ::1:2000                :::*                    LISTEN      4914/nc
     tcp6       0      0 ::1:8307                :::*                    LISTEN      -
     tcp6       0      0 :::22                   :::*                    LISTEN      -
     tcp6       0      0 ::1:631                 :::*                    LISTEN      -
     tcp6       0      0 :::51095                :::*                    LISTEN      -
     tcp6       0      0 :::443                  :::*                    LISTEN      -
     tcp6       0      0 :::10050                :::*                    LISTEN      -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:32984 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:41908 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:36444 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:34274 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:49151 2620:10f:3007:a06:49153 ESTABLISHED -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:35548 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:57786 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:32806 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:49147 2620:10f:3007:a06:49153 ESTABLISHED -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:33608 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:37656 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:60522 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:60468 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:60644 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:38006 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:60872 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:41666 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:60516 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:39746 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:60818 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:36694 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:55356 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:36136 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:49146 2620:10f:3007:a06:49153 ESTABLISHED -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:37284 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:35374 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:35964 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:35710 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:39058 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:34146 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:35850 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:33316 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:34716 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:59344 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:41344 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:36450 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:35038 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:34150 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:33268 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:33728 TIME_WAIT   -
-    tcp6       0      0 2620:10f:3007:a00:44942 2620:10f:3007:a068:4505 ESTABLISHED -
-    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:59814 TIME_WAIT   -
 and 3) a brief explanation of what you see.
     I see all processes listening on tcp or tcp6 protocol and their process names if I have access to them, which I only have for the nc I started
 11. Show: 1) the command line you used to run the client program;
-
+    hassonj@maine:~/CS324/hw5/sockets$ ./client localhost 2000 foo bar baz catvideo
+    Received 139763372321720 bytes:
+    Received 139763372321720 bytes:
+    Received 139763372321720 bytes:
+    Received 139763372321720 bytes:
 and 2) the console output from the netcat server (not the client).
-
+    hassonj@maine:~/CS324/hw5/sockets$ nc -kl localhost 2000
+    foobarbazcatvideo
 12. Show the command line you used and its output (Hint: your nc connection should show up in the list).
-
+    hassonj@maine:~/CS324/hw5/sockets$ netstat --tcp -p -n
+    (Not all processes could be identified, non-owned process info
+     will not be shown, you would have to be root to see it all.)
+    Active Internet connections (w/o servers)
+    Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+    tcp        0      0 192.168.2.144:57715     52.242.211.89:443       ESTABLISHED -
+    tcp        0      0 192.168.2.144:797       192.168.168.26:2049     ESTABLISHED -
+    tcp        0      0 192.168.2.144:22        192.168.168.2:46033     SYN_RECV    -
+    tcp        0      0 192.168.2.144:22        192.168.168.2:23422     SYN_RECV    -
+    tcp        0      0 192.168.2.144:22        195.206.105.217:60342   ESTABLISHED -
+    tcp        0      0 192.168.2.144:52115     52.141.217.125:443      ESTABLISHED -
+    tcp        0      0 192.168.2.144:49151     192.168.168.20:24007    ESTABLISHED -
+    tcp        0    376 192.168.2.144:22        174.23.28.90:58634      ESTABLISHED -
+    tcp        0      0 192.168.2.144:53454     192.168.168.29:389      ESTABLISHED -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:34986 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:60184 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:36006 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:34806 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:49151 2620:10f:3007:a06:49153 ESTABLISHED -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:40408 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:49147 2620:10f:3007:a06:49153 ESTABLISHED -
+    tcp6       0      0 ::1:41398               ::1:2000                ESTABLISHED 5450/./client
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:38238 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:33250 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:33476 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:59240 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:33854 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:33242 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:60712 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:59808 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:59622 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:59982 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:34746 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:60718 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:60316 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:34424 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:60830 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:49146 2620:10f:3007:a06:49153 ESTABLISHED -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:37170 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:33114 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:59782 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:35390 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:60064 TIME_WAIT   -
+    tcp6       0      0 ::1:2000                ::1:41398               ESTABLISHED 5320/nc
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:38966 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:34268 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:59744 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:44688 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:58536 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:36618 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:44942 2620:10f:3007:a068:4505 ESTABLISHED -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:35084 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:36658 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:35566 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:35502 TIME_WAIT   -
 13. Show the command line you used and its output.
-
+    hassonj@maine:~/CS324/hw5/sockets$ netstat --tcp -p -n
+    (Not all processes could be identified, non-owned process info
+     will not be shown, you would have to be root to see it all.)
+    Active Internet connections (w/o servers)
+    Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+    tcp        0      0 192.168.2.144:22        192.168.168.2:19307     SYN_RECV    -
+    tcp        0      0 192.168.2.144:57715     52.242.211.89:443       ESTABLISHED -
+    tcp        0      0 192.168.2.144:797       192.168.168.26:2049     ESTABLISHED -
+    tcp        0      0 192.168.2.144:22        192.168.168.2:45836     SYN_RECV    -
+    tcp        0      0 192.168.2.144:22        192.168.168.2:28176     SYN_RECV    -
+    tcp        0      1 192.168.2.144:22        195.206.105.217:60342   FIN_WAIT1   -
+    tcp        0      0 192.168.2.144:52115     52.141.217.125:443      ESTABLISHED -
+    tcp        0      0 192.168.2.144:49151     192.168.168.20:24007    ESTABLISHED -
+    tcp        0    376 192.168.2.144:22        174.23.28.90:58634      ESTABLISHED -
+    tcp        0      0 192.168.2.144:53454     192.168.168.29:389      ESTABLISHED -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:39582 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:46962 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:45320 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:40256 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:49151 2620:10f:3007:a06:49153 ESTABLISHED -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:40106 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:49147 2620:10f:3007:a06:49153 ESTABLISHED -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:48716 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:41632 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:39716 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:43770 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:41076 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:44210 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:43594 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:39738 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:42416 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:40590 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:39686 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:35664 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:41470 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:49146 2620:10f:3007:a06:49153 ESTABLISHED -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:34652 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:44552 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:42066 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:43012 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:39964 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:43910 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:38458 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:42948 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:42532 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:44872 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:43190 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:43262 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:40656 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:46502 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:41414 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:44942 2620:10f:3007:a068:4505 ESTABLISHED -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:39170 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:40776 TIME_WAIT   -
+    tcp6       0      0 2620:10f:3007:a00:10050 2620:10f:3007:a06:39918 TIME_WAIT   -
 Part 3: server.c - TCP
 
 14. Modify server.c. Show the command line you used to discover the SHA1 sum and its output.
