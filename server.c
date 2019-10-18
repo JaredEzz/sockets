@@ -65,6 +65,9 @@ int main(int argc, char *argv[]) {
 	listen(sfd, 100);
 	printf("listened\n");
 	int asfd = accept(sfd, (struct sockaddr *) &peer_addr, &peer_addr_len);
+	if (asfd == -1){
+	    exit(EXIT_FAILURE);
+	}
     printf("accepted\n");
 	for (;;) {
 		peer_addr_len = sizeof(struct sockaddr_storage);
