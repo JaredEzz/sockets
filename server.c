@@ -69,7 +69,6 @@ int main(int argc, char *argv[]) {
 	for (;;) {
 		peer_addr_len = sizeof(struct sockaddr_storage);
 		nread = recv(asfd, buf, BUF_SIZE, 0);
-        printf("%d", nread);
 		if (nread == 0)
 			break;
 		if (nread == -1)
