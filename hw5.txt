@@ -2,12 +2,39 @@ Part 1: client.c
 1. What two system calls are required to create and prepare a client socket for use?
   getaddrinfo, socket
 2. Show the command line you used.
-  nc -ul 1998
+  nc -ukl 3333
 3. Show: a) the command line you used;
-
+  netstat -aupn
 2) its output;
+hassonj@cristoredentor:~/CS324/hw5/sockets$ netstat -aupn
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+udp        0      0 0.0.0.0:41633           0.0.0.0:*                           -
+udp        0      0 0.0.0.0:45940           0.0.0.0:*                           -
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           -
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           -
+udp        0      0 0.0.0.0:32868           0.0.0.0:*                           -
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           -
+udp        0      0 127.0.0.1:323           0.0.0.0:*                           -
+udp        0      0 0.0.0.0:631             0.0.0.0:*                           -
+udp        0      0 127.0.0.1:714           0.0.0.0:*                           -
+udp        0      0 0.0.0.0:856             0.0.0.0:*                           -
+udp        0      0 0.0.0.0:3333            0.0.0.0:*                           30635/nc
+udp        0      0 0.0.0.0:5154            0.0.0.0:*                           -
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           -
+udp        0      0 0.0.0.0:57104           0.0.0.0:*                           -
+udp6       0      0 :::60605                :::*                                -
+udp6       0      0 :::49097                :::*                                -
+udp6       0      0 :::111                  :::*                                -
+udp6       0      0 ::1:323                 :::*                                -
+udp6       0      0 :::856                  :::*                                -
+udp6       0      0 :::5353                 :::*                                -
+udp6       0      0 :::56007                :::*                                -
 
 and 3) a brief explanation of what you see.
+I see all the ports on my lab machine listening on UDP ports, and since I don't have admin access to all of them, I just see the PID for the process I started, nc
 
 4. Modify client.c. Show the command line you used to discover the SHA1 sum and its output.
 

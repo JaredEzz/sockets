@@ -73,16 +73,17 @@ int main(int argc, char *argv[]) {
 			continue;
 		}
 
+		sleep(2);
 		if (write(sfd, argv[j], len) != len) {
 			fprintf(stderr, "partial/failed write\n");
 			exit(EXIT_FAILURE);
 		}
 
-		nread = read(sfd, buf, BUF_SIZE);
-		if (nread == -1) {
-			perror("read");
-			exit(EXIT_FAILURE);
-		}
+//		nread = read(sfd, buf, BUF_SIZE);
+//		if (nread == -1) {
+//			perror("read");
+//			exit(EXIT_FAILURE);
+//		}
 
 		printf("Received %zd bytes: %s\n", nread, buf);
 	}
