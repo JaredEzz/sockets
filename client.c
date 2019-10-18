@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
 	hints.ai_protocol = 0;          /* Any protocol */
 
 	s = getaddrinfo(argv[1], argv[2], &hints, &result);
-    printf("s is %d%n", s);
+    printf("s is %d\n", s);
 	if (s != 0) {
 		fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(s));
 		exit(EXIT_FAILURE);
@@ -44,14 +44,14 @@ int main(int argc, char *argv[]) {
 	for (rp = result; rp != NULL; rp = rp->ai_next) {
 		sfd = socket(rp->ai_family, rp->ai_socktype,
 				rp->ai_protocol);
-        printf("sfd is %d%n", sfd);
+        printf("sfd is %d\n", sfd);
 		if (sfd == -1)
 			continue;
 
 		if (connect(sfd, rp->ai_addr, rp->ai_addrlen) != -1)
 			break;                  /* Success */
 
-        printf("rp failed%n");
+        printf("rp failed\n");
 		close(sfd);
 	}
 
