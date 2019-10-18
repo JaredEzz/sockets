@@ -36,16 +36,73 @@ udp6       0      0 :::56007                :::*                                
 and 3) a brief explanation of what you see.
 I see all the ports on my lab machine listening on UDP ports, and since I don't have admin access to all of them, I just see the PID for the process I started, nc
 
-4. Modify client.c. Show the command line you used to discover the SHA1 sum and its output.
-
+4. Modify client.c. Show the command line you used to discover the SHA1 sum
+  sha1sum client
+and its output.
+  bc795d1eb4fe6a2a47f6741fbf2faa20a4a6163a  client
 5. Show: 1) the command line you used to run the client program;
-
+    hassonj@cristoredentor:~/CS324/hw5/sockets$ ./client localhost 2000 foo bar baz catvideo
+    Received 140175820831672 bytes:
+    Received 140175820831672 bytes:
+    Received 140175820831672 bytes:
+    Received 140175820831672 bytes:
 and 2) the console output from the netcat server (not the client).
-
+    hassonj@cristoredentor:~/CS324/hw5/sockets$ nc -u -k -l localhost 2000
+    foobarbazcatvideo
 6. Show the command line you used and its output (Hint: your nc "connection" should show up in the list).
-
+    hassonj@maine:~$ netstat -aupn
+    (Not all processes could be identified, non-owned process info
+     will not be shown, you would have to be root to see it all.)
+    Active Internet connections (servers and established)
+    Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+    udp        0      0 0.0.0.0:56822           0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:40598           0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:45322           0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:46107           0.0.0.0:*                           -
+    udp        0      0 127.0.0.53:53           0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:68              0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:111             0.0.0.0:*                           -
+    udp        0      0 127.0.0.1:323           0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:631             0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:745             0.0.0.0:*                           -
+    udp        0      0 127.0.0.1:878           0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:5154            0.0.0.0:*                           -
+    udp        0      0 0.0.0.0:5353            0.0.0.0:*                           -
+    udp6     768      0 ::1:42228               ::1:2000                ESTABLISHED 2090/./client
+    udp6       0      0 :::42906                :::*                                -
+    udp6       0      0 :::43494                :::*                                -
+    udp6       0      0 :::111                  :::*                                -
+    udp6       0      0 ::1:323                 :::*                                -
+    udp6       0      0 :::745                  :::*                                -
+    udp6       0      0 ::1:2000                ::1:42228               ESTABLISHED 1909/nc
+    udp6       0      0 :::35858                :::*                                -
+    udp6       0      0 :::5353                 :::*                                -
 7. Show the command line you used and its output.
-
+hassonj@maine:~$ netstat -aupn
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+udp        0      0 0.0.0.0:56822           0.0.0.0:*                           -
+udp        0      0 0.0.0.0:40598           0.0.0.0:*                           -
+udp        0      0 0.0.0.0:45322           0.0.0.0:*                           -
+udp        0      0 0.0.0.0:46107           0.0.0.0:*                           -
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           -
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           -
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           -
+udp        0      0 127.0.0.1:323           0.0.0.0:*                           -
+udp        0      0 0.0.0.0:631             0.0.0.0:*                           -
+udp        0      0 0.0.0.0:745             0.0.0.0:*                           -
+udp        0      0 127.0.0.1:878           0.0.0.0:*                           -
+udp        0      0 0.0.0.0:5154            0.0.0.0:*                           -
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           -
+udp6       0      0 :::42906                :::*                                -
+udp6       0      0 :::43494                :::*                                -
+udp6       0      0 :::111                  :::*                                -
+udp6       0      0 ::1:323                 :::*                                -
+udp6       0      0 :::745                  :::*                                -
+udp6       0      0 :::35858                :::*                                -
+udp6       0      0 :::5353                 :::*                                -
 Part 2: client.c - TCP
 
 8. Show the command line you used to discover the SHA1 sum and its output.
