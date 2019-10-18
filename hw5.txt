@@ -112,7 +112,7 @@ Part 2: client.c - TCP
 10. Show: a) the command line you used;
     netstat --tcp -l -p -n
 2) its output;
-    │(Not all processes could be identified, non-owned process info
+    (Not all processes could be identified, non-owned process info
      will not be shown, you would have to be root to see it all.)
     Active Internet connections (only servers)
     Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
@@ -265,7 +265,8 @@ and 2) the console output from the netcat server (not the client).
 Part 3: server.c - TCP
 
 14. Modify server.c. Show the command line you used to discover the SHA1 sum and its output.
-
+    hassonj@maine:~/CS324/hw5/sockets$ sha1sum server
+    a0f3bec0dd6a56a4a841ceffb9ea590d8545d129  server
 15. Show: 1) the command-line you used to run the server program;
 
 and 2) the command-line you used to run the client program, and the output from the client (not the server).
