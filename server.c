@@ -64,11 +64,11 @@ int main(int argc, char *argv[]) {
 	/* Read datagrams and echo them back to sender */
 	listen(SOCK_STREAM, 100);
 	printf("listened%n");
-	accept(sfd, (struct sockaddr *) &peer_addr, &peer_addr_len);
+	int asfd = accept(sfd, (struct sockaddr *) &peer_addr, &peer_addr_len);
     printf("accepted%n");
 	for (;;) {
 		peer_addr_len = sizeof(struct sockaddr_storage);
-		nread = recv(sfd, buf, BUF_SIZE, 0);
+		nread = recv(asfd, buf, BUF_SIZE, 0);
         printf("%d", nread);
 		if (nread == 0)
 			break;
@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
 		else
 			fprintf(stderr, "getnameinfo: %s\n", gai_strerror(s));
 
-		if (sendto(sfd, buf, nread, 0,
+		if (sendto(asfd, buf, nread, 0,
 					(struct sockaddr *) &peer_addr,
 					peer_addr_len) != nread)
 			fprintf(stderr, "Error sending response\n");
