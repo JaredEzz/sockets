@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
 	freeaddrinfo(result);           /* No longer needed */
 
 	/* Read datagrams and echo them back to sender */
-	listen(SOCK_STREAM, 100);
+	listen(sfd, 100);
 	printf("listened\n");
 	int asfd = accept(sfd, (struct sockaddr *) &peer_addr, &peer_addr_len);
     printf("accepted\n");
