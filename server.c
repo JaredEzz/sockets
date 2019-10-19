@@ -63,12 +63,12 @@ int main(int argc, char *argv[]) {
 
 	/* Read datagrams and echo them back to sender */
 	listen(sfd, 100);
-	printf("listened\n");
+//	printf("listened\n");
 	int asfd = accept(sfd, (struct sockaddr *) &peer_addr, &peer_addr_len);
 	if (asfd == -1){
 	    exit(EXIT_FAILURE);
 	}
-    printf("accepted\n");
+//    printf("accepted\n");
 	for (;;) {
 		peer_addr_len = sizeof(struct sockaddr_storage);
 		nread = recv(asfd, buf, BUF_SIZE, 0);
