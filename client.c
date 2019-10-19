@@ -72,14 +72,14 @@ int main(int argc, char *argv[]) {
 	/* Send remaining command-line arguments as separate
 	   datagrams, and read responses from server */
 	char* buffer = NULL;
-	int count = fread(buffer, sizeof(char), 4096, stdin);
+	size_t count = fread(buffer, sizeof(char), 4096, stdin);
 	if	(count == 0){
 		printf("fread finished with error\n");
 		exit(EXIT_FAILURE);
 	}
 	int total_sent = 0;
 	while (total_sent != count){
-		int sent = write(sfd, buffer, 27);
+		size_t sent = write(sfd, buffer, 27);
 		total_sent += sent;
 		printf("sent %d, %d sent of %d", sent, total_sent, count);
 	}
