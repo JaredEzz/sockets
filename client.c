@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
 	char* buffer = NULL;
 	int count = fread(buffer, sizeof(char), 4096, stdin);
 	if	(count == 0){
-		printf("fread finished with error");
+		printf("fread finished with error\n");
 		exit(EXIT_FAILURE);
 	}
 	int total_sent = 0;
