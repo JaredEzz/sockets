@@ -81,7 +81,7 @@ int main(int argc, char *argv[]) {
 	while (total_sent != count){
 		size_t sent = write(sfd, buffer, 27);
 		total_sent += sent;
-		printf("sent %d, %d sent of %d", sent, total_sent, count);
+		printf("sent %d, %d sent of %d\n", sent, total_sent, count);
 	}
 
 //	for (j = 3; j < argc; j++) {
