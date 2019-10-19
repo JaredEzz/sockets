@@ -268,11 +268,20 @@ Part 3: server.c - TCP
     hassonj@maine:~/CS324/hw5/sockets$ sha1sum server
     a0f3bec0dd6a56a4a841ceffb9ea590d8545d129  server
 15. Show: 1) the command-line you used to run the server program;
-
+    hassonj@maine:~/CS324/hw5/sockets$ ./server 2000
+    Received 4 bytes from localhost:36872
+    Received 4 bytes from localhost:36872
+    Received 4 bytes from localhost:36872
+    Received 9 bytes from localhost:36872
 and 2) the command-line you used to run the client program, and the output from the client (not the server).
-
+    hassonj@maine:~/CS324/hw5/sockets$ ./client localhost 2000 foo bar baz catvideo
+    Received 140385250610104 bytes:
+    Received 140385250610104 bytes:
+    Received 140385250610104 bytes:
+    Received 140385250610104 bytes:
 16. Why is there a difference between handling of "connections" at the server with TCP and with UDP?
-
+    With UDP, the client and server do not communicate about the received status of the message.
+    With TCP, the client and server acknowledge that a connection is made and the message is sent and received.
 Part 4: Client modification
 
 17. Modify client.c. Show the command line you used to discover the SHA1 sum and its output.
