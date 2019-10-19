@@ -288,7 +288,12 @@ Part 4: Client modification
     sha1sum client
     955f0c65a3bffa40b4969eaafff8c237946aaee3  client
 18. Show: 1) the pipeline you used to run nc, and its output (after the client finished executing);
-    nc -lv 2000 | sha1sum
+    hassonj@maine:~/CS324/hw5/sockets$ nc -l 2000 | sha1sum
+    0ef39a3f241cdd6552ad131e01afa9171b3dab8d  -
 and 2) the command line you used to run the client program.
     cat alpha.txt | ./client localhost 2000
 19. Show the command line you used to run the client program and its output.
+    cat file-http.txt | ./client www-notls.imaal.byu.edu 80
+    Received 140045611051960 bytes:
+    Received 140045611051960 bytes:
+    Received 140045611051960 bytes:
