@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
 
 	/* Send remaining command-line arguments as separate
 	   datagrams, and read responses from server */
-	char* buffer;
+	char* buffer = NULL;
 	int count = fread(buffer, sizeof(char), 4096, stdin);
 	if	(count == 0){
 		printf("fread finished with error");
