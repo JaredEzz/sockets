@@ -61,53 +61,47 @@ int main(int argc, char *argv[]) {
 
 	freeaddrinfo(result);           /* No longer needed */
 
-	/// read using fread from stdin into a char[] buffer until EOF, max bytes 4096
-
-	/// keep track of how many bytes were received from stdin and stored in the buffer
-
-	/// loop to send all bytes received until it's all been sent
-
-
-
 	/* Send remaining command-line arguments as separate
 	   datagrams, and read responses from server */
-	char* buffer = NULL;
-	size_t count = fread(buffer, sizeof(char), 4096, stdin);
-	if	(count == 0){
-		printf("fread finished with error\n");
-		exit(EXIT_FAILURE);
-	}
-	int total_sent = 0;
-	while (total_sent != count){
-		size_t sent = write(sfd, buffer, 27);
-		total_sent += sent;
-		printf("sent %d, %d sent of %d\n", sent, total_sent, count);
-	}
+//	char* buffer = NULL;
+//	size_t count = fread(buffer, sizeof(char), 4096, stdin);
+//	if	(count == 0){
+//		printf("fread finished with error\n");
+//		exit(EXIT_FAILURE);
+//	}
+//	char* buffer = NULL;
+//	fread(buffer, sizeof(char), 4096, )
+//	int total_sent = 0;
+//	while (total_sent != count){
+//		size_t sent = write(sfd, buffer, 27);
+//		total_sent += sent;
+//		printf("sent %ld, %d sent of %d\n", sent, total_sent, count);
+//	}
 
-//	for (j = 3; j < argc; j++) {
-//		len = strlen(argv[j]) + 1;
-//		/* +1 for terminating null byte */
-//
-//		if (len + 1 > BUF_SIZE) {
-//			fprintf(stderr,
-//					"Ignoring long message in argument %d\n", j);
-//			continue;
-//		}
-//
-//		sleep(2);
-//		if (write(sfd, argv[j], len) != len) {
-//			fprintf(stderr, "partial/failed write\n");
+	for (j = 3; j < argc; j++) {
+		len = strlen(argv[j]) + 1;
+		/* +1 for terminating null byte */
+
+		if (len + 1 > BUF_SIZE) {
+			fprintf(stderr,
+					"Ignoring long message in argument %d\n", j);
+			continue;
+		}
+
+		sleep(2);
+		if (write(sfd, argv[j], len) != len) {
+			fprintf(stderr, "partial/failed write\n");
+			exit(EXIT_FAILURE);
+		}
+
+//		nread = read(sfd, buf, BUF_SIZE);
+//		if (nread == -1) {
+//			perror("read");
 //			exit(EXIT_FAILURE);
 //		}
-//
-////		nread = read(sfd, buf, BUF_SIZE);
-////		if (nread == -1) {
-////			perror("read");
-////			exit(EXIT_FAILURE);
-////		}
-//
-//		printf("Received %zd bytes: %s\n", nread, buf);
-//	}
+
+		printf("Received %zd bytes: %s\n", nread, buf);
+	}
 
 	exit(EXIT_SUCCESS);
 }
